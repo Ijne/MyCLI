@@ -1,0 +1,6 @@
+ls
+cd ../
+ls
+cd abrakadabra
+ls
+bobidjon

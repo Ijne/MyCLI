@@ -1,0 +1,11 @@
+type,path,content
+directory,/,
+directory,/home,
+directory,/home/user,
+directory,/home/user/documents,
+directory,/home/user/pictures,
+directory,/etc,
+directory,/var,
+directory,/var/log,
+directory,/tmp,
+file,/home/user/.bashrc,
