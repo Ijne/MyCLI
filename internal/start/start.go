@@ -77,6 +77,8 @@ func handler_os(app *tview.Application, input *tview.InputField, output *tview.T
 					//	path := path[1 : len(path)-1]
 					if err := commands.CdCMD(input, path); err != nil {
 						fmt.Fprintf(output, "$ %s\n", err)
+					} else {
+						fmt.Fprintf(output, "> %s\n", path)
 					}
 					//} else {
 					//	fmt.Fprintf(output, "$ If you wanna send an argument, use '{arg}'\n")
@@ -195,10 +197,10 @@ func handler_vfs(currentVFS *vfs.VFS, app *tview.Application, input *tview.Input
 				fmt.Fprintf(output, "\n")
 			}
 
-		case "whoami":
+		case WHOAMI:
 			fmt.Fprintf(output, "> %s\n", currentVFS.Username)
 
-		case "wc":
+		case WC:
 			if len(args) > 1 {
 				content, err := currentVFS.GetContent(args[1])
 				if err != nil {
@@ -213,7 +215,7 @@ func handler_vfs(currentVFS *vfs.VFS, app *tview.Application, input *tview.Input
 				fmt.Fprintf(output, "Error: wc requires filename argument\n")
 			}
 
-		case "touch":
+		case TOUCH:
 			if len(args) > 1 {
 				if err := currentVFS.Touch(args[1]); err != nil {
 					fmt.Fprintf(output, "Error: %s\n", err)
