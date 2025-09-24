@@ -1,129 +1,129 @@
 # MyCLI 🚀
 
-Гибкая и расширяемая командная оболочка с поддержкой виртуальной файловой системы и скриптового выполнения
+Flexible and extensible command shell with virtual file system support and script execution
 
 ![Go Version](https://img.shields.io/badge/Go-1.21+-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen)
 
-## 📖 О проекте
+## 📖 About the Project
 
-MyCLI - это современная командная оболочка, написанная на Go, которая предоставляет мощные возможности для работы с файловой системой, выполнения скриптов и автоматизации задач. Проект сочетает в себе простоту использования с гибкостью настройки.
+MyCLI is a modern command shell written in Go that provides powerful capabilities for working with file systems, executing scripts, and automating tasks. The project combines ease of use with configuration flexibility.
 
-## ✨ Особенности
+## ✨ Features
 
-- **🖥️ Интерактивная оболочка** - Удобный интерфейс командной строки с подсветкой и автодополнением
-- **📁 Виртуальная файловая система** - Работа с файлами и директориями в изолированном окружении
-- **⚡ Скриптовое выполнение** - Поддержка выполнения предварительно настроенных скриптов
-- **🔧 Расширяемость** - Простая архитектура для добавления новых команд
+- **🖥️ Interactive Shell** - User-friendly command line interface with highlighting and autocomplete  
+- **📁 Virtual File System** - Work with files and directories in an isolated environment  
+- **⚡ Script Execution** - Support for executing pre-configured scripts  
+- **🔧 Extensibility** - Simple architecture for adding new commands  
 
-![Пример работы](pictures/image.png)
+![Work Example](pictures/image.png)
 
-## 🚀 Быстрый старт
+## 🚀 Quick Start
 
-### Установка
+### Installation
 
 ```bash
-# Клонирование репозитория
+# Clone repository
 git clone https://github.com/Ijne/MyCLI.git
 cd MyCLI
 
-# Сборка проекта
+# Build project
 go build -o mycli cmd/main.go
 
-# Запуск
+# Run
 ./mycli
 ```
 
-### Использование
+### Usage
 
 ```bash
-# Запуск интерактивного режима
+# Start interactive mode
 ./mycli
 
-# Выполнение скрипта
+# Execute script
 ./mycli -s scripts/script1.txt
 ```
 
-## 📁 Структура проекта
+## 📁 Project Structure
 
 ```
 MyCLI/
 ├── cmd/
-│   └── main.go              # Точка входа приложения
+│   └── main.go              # Application entry point
 ├── internal/
 │   ├── VFS/
-│   │   └── vfs.go           # Виртуальная файловая система
+│   │   └── vfs.go           # Virtual file system
 │   ├── commands/
-│   │   └── commands.go      # Реализация команд
+│   │   └── commands.go      # Command implementations
 │   ├── start/
-│   │   ├── parse_config.go  # Парсинг конфигурации
-│   │   ├── script_execution.go # Выполнение скриптов
-│   │   └── start.go         # Инициализация приложения
-├── scripts/                 # Директория со скриптами
-├── vfs/                    # Виртуальная файловая система
-│   └── example.csv         # Пример файла VFS
-└── config.yaml            # Пример конфигурации
+│   │   ├── parse_config.go  # Configuration parsing
+│   │   ├── script_execution.go # Script execution
+│   │   └── start.go         # Application initialization
+├── scripts/                 # Scripts directory
+├── vfs/                    # Virtual file system
+│   └── example.csv         # VFS example file
+└── config.yaml            # Example configuration
 ```
 
-## 💻 Основные команды
+## 💻 Main Commands
 
-### Работа с файловой системой
+### File System Operations
 ```bash
-ls                 # Просмотр содержимого директории
-cd [path]          # Смена текущей директории
-wc
+ls                 # List directory contents
+cd [path]          # Change current directory
+wc                 # Word count
 ```
 
-### Управление файлами
+### File Management
 ```bash
-touch [file]       # Создание файла
+touch [file]       # Create file
 ```
 
-### Системные команды
+### System Commands
 ```bash        
-whoami             # Текущий пользователь
-clear              # Очистка экрана
-exit               # Выход из приложения
+whoami             # Current user
+clear              # Clear screen
+exit               # Exit application
 ```
 
-## 📜 Скрипты
+## 📜 Scripts
 
-MyCLI поддерживает выполнение скриптов из директории `scripts/`. Скрипты могут содержать последовательности команд для автоматизации задач.
+MyCLI supports script execution from the `scripts/` directory. Scripts can contain command sequences for task automation.
 
-## 🔧 Разработка
+## 🔧 Development
 
-### Добавление новой команды
+### Adding New Commands
 
-1. Редактируйте `internal/commands/commands.go`:
+1. Edit `internal/commands/commands.go`:
 ```go
 func registerCustomCommands() {
-    RegisterCommand("mycommand", "Описание команды", myCommandHandler)
+    RegisterCommand("mycommand", "Command description", myCommandHandler)
 }
 
 func myCommandHandler(args []string) {
-    // Логика команды
-    fmt.Println("Моя команда выполнена!")
+    // Command logic
+    fmt.Println("My command executed!")
 }
 ```
 
-### Расширение VFS
+### Extending VFS
 
-Модифицируйте `internal/VFS/vfs.go` для добавления новой функциональности в виртуальную файловую систему.
+Modify `internal/VFS/vfs.go` to add new functionality to the virtual file system.
 
-## 📄 Лицензия
+## 📄 License
 
-Этот проект распространяется под лицензией MIT. Подробнее см. в файле [LICENSE](LICENSE).
+This project is distributed under the MIT license. For more details see [LICENSE](LICENSE) file.
 
-## 👥 Авторы
+## 👥 Authors
 
 - **Ijne** - [GitHub](https://github.com/Ijne)
 
-## 🙏 Благодарности
+## 🙏 Acknowledgments
 
-- Сообществу Go за отличный язык и инструменты
-- Всем контрибьюторам проекта
+- Go community for excellent language and tools  
+- All project contributors  
 
 ---
 
-**MyCLI** - сделайте вашу работу в командной строке эффективнее и приятнее! 🎉
+**MyCLI** - make your command line work more efficient and enjoyable! 🎉
